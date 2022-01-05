@@ -19,7 +19,7 @@
 
     <style>
         .bg-login-image {
-            background-image: url("<?= base_url('assets/img/finance_0bdk.svg'); ?>");
+            background-image: url("<?= base_url('assets/img/logoLouser.png'); ?>");
             background-repeat: no-repeat;
             background-size: 80%;
         }
@@ -27,7 +27,7 @@
 </head>
 
 
-<body class="bg-gradient-success">
+<body class="bg-light">
 
     <div class="container">
 

@@ -17,6 +17,7 @@ class Barangkeluar extends CI_Controller
         $data['title'] = "Data Barang keluar";
         $data['barangkeluar'] = $this->admin->getBarangkeluar();
         $this->template->load('templates/dashboard', 'barang_keluar/data', $data);
+        
     }
 
     private function _validasi()
@@ -25,16 +26,12 @@ class Barangkeluar extends CI_Controller
         $this->form_validation->set_rules('barang_id', 'Barang', 'required');
 
         $input = $this->input->post('barang_id', true);
-        $stok = $this->admin->get('barang', ['id_barang' => $input])['stok'];
-        $stok_valid = $stok + 1;
+        $stok = $this->input->get('barang', ['stok'], true);
+        $stok_valid = $this->input->get('barang', ['stok'], true);
 
         $this->form_validation->set_rules(
             'jumlah_keluar',
             'Jumlah Keluar',
-            "required|trim|numeric|greater_than[0]|less_than[{$stok_valid}]",
-            [
-                'less_than' => "Jumlah Keluar tidak boleh lebih dari {$stok}"
-            ]
         );
     }
 

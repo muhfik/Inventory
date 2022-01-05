@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Jenis extends CI_Controller
+class Koordinat extends CI_Controller
 {
     public function __construct()
     {
@@ -14,14 +14,14 @@ class Jenis extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Data Jenis Barang";
-        $data['jenis'] = $this->admin->get('jenis');
-        $this->template->load('templates/dashboard', 'jenis/data', $data);
+        $data['title'] = "Data Koordinat Barang";
+        $data['koordinat'] = $this->admin->get('koordinat');
+        $this->template->load('templates/dashboard', 'koordinat/data', $data);
     }
 
     private function _validasi()
     {
-        $this->form_validation->set_rules('nama_jenis', 'Nama Jenis', 'required|trim');
+        $this->form_validation->set_rules('koordinat', 'Koordinat', 'required|trim');
     }
 
     public function add()
@@ -29,17 +29,17 @@ class Jenis extends CI_Controller
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = "Tambah Data Jenis Barang";
-            $this->template->load('templates/dashboard', 'jenis/add', $data);
+            $data['title'] = "Tambah Data Koordinat Barang";
+            $this->template->load('templates/dashboard', 'koordinat/add', $data);
         } else {
             $input = $this->input->post(null, true);
-            $insert = $this->admin->insert('jenis', $input);
+            $insert = $this->admin->insert('koordinat', $input);
             if ($insert) {
                 set_pesan('Data berhasil disimpan');
-                redirect('jenis');
+                redirect('koordinat');
             } else {
                 set_pesan('Data gagal disimpan', false);
-                redirect('jenis/add');
+                redirect('koordinat/add');
             }
         }
     }
@@ -50,18 +50,18 @@ class Jenis extends CI_Controller
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = "Edit Data Jenis Barang";
-            $data['jenis'] = $this->admin->get('jenis', ['id_jenis' => $id]);
-            $this->template->load('templates/dashboard', 'jenis/edit', $data);
+            $data['title'] = "Edit Data Koordinat Barang";
+            $data['koordinat'] = $this->admin->get('koordinat', ['id_koordinat' => $id]);
+            $this->template->load('templates/dashboard', 'koordinat/edit', $data);
         } else {
             $input = $this->input->post(null, true);
-            $update = $this->admin->update('jenis', 'id_jenis', $id, $input);
+            $update = $this->admin->update('koordinat', 'id_koordinat', $id, $input);
             if ($update) {
                 set_pesan('Data berhasil disimpan');
-                redirect('jenis');
+                redirect('koordinat');
             } else {
                 set_pesan('Data gagal disimpan', false);
-                redirect('jenis/add');
+                redirect('koordinat/add');
             }
         }
     }
@@ -69,11 +69,11 @@ class Jenis extends CI_Controller
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        if ($this->admin->delete('jenis', 'id_jenis', $id)) {
+        if ($this->admin->delete('koordinat', 'id_koordinat', $id)) {
             set_pesan('Data berhasil dihapus');
         } else {
             set_pesan('Data gagal dihapus', false);
         }
-        redirect('jenis');
+        redirect('koordinat');
     }
 }

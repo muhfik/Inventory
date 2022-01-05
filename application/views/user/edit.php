@@ -60,8 +60,8 @@
                             <label class="custom-control-label" for="admin">Admin</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input <?= $user['role'] == 'gudang' ? 'checked' : ''; ?> <?= set_radio('role', 'gudang'); ?> value="gudang" type="radio" id="gudang" name="role" class="custom-control-input">
-                            <label class="custom-control-label" for="gudang">Gudang</label>
+                            <input <?= $user['role'] == 'operator' ? 'checked' : ''; ?> <?= set_radio('role', 'operator'); ?> value="operator" type="radio" id="operator" name="role" class="custom-control-input">
+                            <label class="custom-control-label" for="operator">Operator</label>
                         </div>
                         <?= form_error('role', '<span class="text-danger small">', '</span>'); ?>
                     </div>

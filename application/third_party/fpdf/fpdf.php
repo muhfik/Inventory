@@ -74,7 +74,6 @@ protected $PDFVersion;         // PDF version number
 function __construct($orientation='P', $unit='mm', $size='A4')
 {
 	// Some checks
-	$this->_dochecks();
 	// Initialization of properties
 	$this->state = 0;
 	$this->page = 0;

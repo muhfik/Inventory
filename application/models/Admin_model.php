@@ -42,10 +42,31 @@ class Admin_model extends CI_Model
 
     public function getBarang()
     {
-        $this->db->join('jenis j', 'b.jenis_id = j.id_jenis');
+        $this->db->join('koordinat j', 'b.koordinat_id = j.id_koordinat');
         $this->db->join('satuan s', 'b.satuan_id = s.id_satuan');
         $this->db->order_by('id_barang');
         return $this->db->get('barang b')->result_array();
+    }
+
+    public function getPerakitan($limit = null, $id_barang_keluar = null, $id_user = null)
+    {
+        $this->db->select('*');
+        $this->db->join('user user', 'p.user_id = user.id_user');
+        $this->db->join('barang_keluar bk', 'p.barang_keluar_id = bk.id_barang_keluar');
+        if ($limit != null) {
+            $this->db->limit($limit);
+        }
+
+        if ($id_barang_keluar != null) {
+            $this->db->where('id_barang_keluar', $id_barang_keluar);
+        }
+
+        if ($id_user != null) {
+            $this->db->where('id_user', $id_user);
+        }
+
+        $this->db->order_by('id_perakitan');
+        return $this->db->get('perakitan p')->result_array();
     }
 
     public function getBarangMasuk($limit = null, $id_barang = null, $range = null)
@@ -71,7 +92,7 @@ class Admin_model extends CI_Model
         $this->db->order_by('id_barang_masuk', 'DESC');
         return $this->db->get('barang_masuk bm')->result_array();
     }
-
+    
     public function getBarangKeluar($limit = null, $id_barang = null, $range = null)
     {
         $this->db->select('*');

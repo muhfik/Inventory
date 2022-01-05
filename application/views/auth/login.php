@@ -11,7 +11,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center mb-4">
-                                <h1 class="h3 text-gray-900">Aplikasi Pengelolaan Persediaan Barang</h1>
+                                <h1 class="h3 text-gray-900">Aplikasi Persediaan Stock Barang</h1>
                                 <span class="text-muted">Silahkan Login</span>
                             </div>
                             <?= $this->session->flashdata('pesan'); ?>
@@ -27,9 +27,6 @@
                             <button type="submit" class="btn btn-success btn-user btn-block">
                                 Login
                             </button>
-                            <div class="text-center mt-4">
-                                Belum punya akun ? Silahkan <a href="<?= base_url('register') ?>">Buat Akun</a>
-                            </div>
                             <?= form_close(); ?>
                         </div>
                     </div>

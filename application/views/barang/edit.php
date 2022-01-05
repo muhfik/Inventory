@@ -31,20 +31,20 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label class="col-md-2 text-md-right" for="jenis_id">Jenis Barang</label>
+                    <label class="col-md-2 text-md-right" for="koordinat_id">Koordinat Barang</label>
                     <div class="col-md-10">
                         <div class="input-group">
-                            <select name="jenis_id" id="jenis_id" class="custom-select">
-                                <option value="" selected disabled>Pilih Jenis Barang</option>
-                                <?php foreach ($jenis as $j) : ?>
-                                    <option <?= $barang['jenis_id'] == $j['id_jenis'] ? 'selected' : ''; ?> <?= set_select('jenis_id', $j['id_jenis']) ?> value="<?= $j['id_jenis'] ?>"><?= $j['nama_jenis'] ?></option>
+                            <select name="koordinat_id" id="koordinat_id" class="custom-select">
+                                <option value="" selected disabled>Pilih Koordinat Barang</option>
+                                <?php foreach ($koordinat as $j) : ?>
+                                    <option <?= $barang['koordinat_id'] == $j['id_koordinat'] ? 'selected' : ''; ?> <?= set_select('koordinat_id', $j['id_koordinat']) ?> value="<?= $j['id_koordinat'] ?>"><?= $j['koordinat'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <div class="input-group-append">
-                                <a class="btn btn-success" href="<?= base_url('jenis/add'); ?>"><i class="fa fa-plus"></i></a>
+                                <a class="btn btn-success" href="<?= base_url('koordinat/add'); ?>"><i class="fa fa-plus"></i></a>
                             </div>
                         </div>
-                        <?= form_error('jenis_id', '<small class="text-danger">', '</small>'); ?>
+                        <?= form_error('koordinat_id', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">

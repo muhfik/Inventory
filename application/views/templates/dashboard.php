@@ -14,7 +14,7 @@
     <link href="<?= base_url(); ?>assets/css/fonts.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/css/sb-admin-2.scss" rel="stylesheet">
 
     <!-- Datepicker -->
     <link href="<?= base_url(); ?>assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -43,10 +43,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex text-white align-items-center bg-success justify-content-center" href="">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Pengelolaan Barang</div>
+                <div class="sidebar-brand-text mx-3">Inventory Stock Barang</div>
             </a>
 
             <!-- Nav Item - Dashboard -->
@@ -70,17 +67,17 @@
                 <li class="nav-item">
                     <a class="nav-link pb-0" href="<?= base_url('user'); ?>">
                         <i class="fas fa-fw fa-users"></i>
-                        <span>Data Pegawai</span>
+                        <span>Data User</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link pb-0" href="<?= base_url('supplier'); ?>">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Data Supplier</span>
                     </a>
                 </li>
             <?php endif; ?>
-            
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('supplier'); ?>">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Data Supplier</span>
-                </a>
-            </li>
 
 			<li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('barang'); ?>">
@@ -89,19 +86,28 @@
                 </a>
             </li>
 			
+            <?php if (is_admin()) : ?>
 			<li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('jenis'); ?>">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>Data Jenis Barang</span>
-                </a>
-            </li>
-			
-			<li class="nav-item">
-                <a class="nav-link" href="<?= base_url('satuan'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('satuan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Data Satuan Barang</span>
                 </a>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('koordinat'); ?>">
+                    <i class="fas fa-fw fa-map-marker"></i>
+                    <span>Data Koordinat Barang</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('perakitan'); ?>">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Data Perakitan</span>
+                </a>
+            </li>
+            <?php endif; ?>
 
            
 
@@ -314,7 +320,7 @@
 
         $(document).ready(function() {
             var table = $('#dataTable').DataTable({
-                buttons: ['copy', 'csv', 'print', 'excel', 'pdf'],
+                buttons: ['print', 'excel', 'pdf'],
                 dom: "<'row px-2 px-md-4 pt-2'<'col-md-3'l><'col-md-5 text-center'B><'col-md-4'f>>" +
                     "<'row'<'col-md-12'tr>>" +
                     "<'row px-2 px-md-4 py-3'<'col-md-5'i><'col-md-7'p>>",

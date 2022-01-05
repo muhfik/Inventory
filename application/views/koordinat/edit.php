@@ -5,11 +5,11 @@
                 <div class="row">
                     <div class="col">
                         <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                            Form Tambah Jenis Barang
+                            Form Edit Koordinat Barang
                         </h4>
                     </div>
                     <div class="col-auto">
-                        <a href="<?= base_url('jenis') ?>" class="btn btn-sm btn-secondary btn-icon-split">
+                        <a href="<?= base_url('koordinat') ?>" class="btn btn-sm btn-secondary btn-icon-split">
                             <span class="icon">
                                 <i class="fa fa-arrow-left"></i>
                             </span>
@@ -22,12 +22,12 @@
             </div>
             <div class="card-body">
                 <?= $this->session->flashdata('pesan'); ?>
-                <?= form_open(); ?>
+                <?= form_open('', [], ['id_koordinat' => $koordinat['id_koordinat']]); ?>
                 <div class="row form-group">
-                    <label class="col-md-2 text-md-right" for="nama_jenis">Nama Jenis</label>
+                    <label class="col-md-2 text-md-right" for="koordinat">Koordinat</label>
                     <div class="col-md-10">
-                        <input autocomplete="off" value="<?= set_value('nama_jenis'); ?>" name="nama_jenis" id="nama_jenis" type="text" class="form-control" placeholder="Nama Jenis Barang">
-                        <?= form_error('nama_jenis', '<small class="text-danger">', '</small>'); ?>
+                        <input autocomplete="off" value="<?= set_value('koordinat', $koordinat['koordinat']); ?>" name="koordinat" id="koordinat" type="text" class="form-control" placeholder="Koordinat Barang">
+                        <?= form_error('koordinat', '<small class="text-danger">', '</small>'); ?>
                     </div>
                 </div>
                 <div class="row form-group">

@@ -4,56 +4,48 @@
         <div class="row">
             <div class="col">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                    <i class="fas fa-fw fa-database"></i> Data Barang
+                    <i class="fas fa-fw fa-folder-open"></i> Data Koordinat Barang
                 </h4>
             </div>
             <div class="col-auto">
-                <a href="<?= base_url('barang/add') ?>" class="btn btn-sm btn-success btn-icon-split">
+                <a href="<?= base_url('koordinat/add') ?>" class="btn btn-sm btn-success btn-icon-split">
                     <span class="icon">
                         <i class="fa fa-plus"></i>
                     </span>
                     <span class="text">
-                        Tambah Barang
+                        Tambah Koordinat Barang
                     </span>
                 </a>
             </div>
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table table-striped w-100 dt-responsive nowrap" id="dataTable">
+        <table class="table table-striped" id="dataTable">
             <thead>
                 <tr>
-                    <th width="5%">No</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
+                    <th width="5%">No </th>
                     <th>Titik Koordinat</th>
-                    <th>Stok</th>
-                    <th>Satuan</th>
-                    <th width="10%">Aksi</th>
+                    <th width="13%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $no = 1;
-                if ($barang) :
-                    foreach ($barang as $b) :
+                if ($koordinat) :
+                    foreach ($koordinat as $j) :
                         ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $b['id_barang']; ?></td>
-                            <td><?= $b['nama_barang']; ?></td>
-                            <td><?= $b['koordinat']; ?></td>
-                            <td><?= $b['stok']; ?></td>
-                            <td><?= $b['nama_satuan']; ?></td>
+                            <td><?= $j['koordinat']; ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url('barang/edit/') . $b['id_barang'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
-                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('barang/delete/') . $b['id_barang'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="<?= base_url('koordinat/edit/') . $j['id_koordinat'] ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('koordinat/delete/') . $j['id_koordinat'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="7" class="text-center">
+                        <td colspan="3" class="text-center">
                             Data Kosong
                         </td>
                     </tr>

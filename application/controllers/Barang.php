@@ -22,7 +22,7 @@ class Barang extends CI_Controller
     private function _validasi()
     {
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required|trim');
-        $this->form_validation->set_rules('jenis_id', 'Jenis Barang', 'required');
+        $this->form_validation->set_rules('koordinat_id', 'Koordinat Barang', 'required');
         $this->form_validation->set_rules('satuan_id', 'Satuan Barang', 'required');
     }
 
@@ -32,7 +32,7 @@ class Barang extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Tambah Data Barang";
-            $data['jenis'] = $this->admin->get('jenis');
+            $data['koordinat'] = $this->admin->get('koordinat');
             $data['satuan'] = $this->admin->get('satuan');
 
             // Mengenerate ID Barang
@@ -64,7 +64,7 @@ class Barang extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Edit Data Barang";
-            $data['jenis'] = $this->admin->get('jenis');
+            $data['koordinat'] = $this->admin->get('koordinat');
             $data['satuan'] = $this->admin->get('satuan');
             $data['barang'] = $this->admin->get('barang', ['id_barang' => $id]);
             $this->template->load('templates/dashboard', 'barang/edit', $data);

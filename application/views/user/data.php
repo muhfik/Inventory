@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                    <i class="fas fa-fw fa-users"></i> Data Pegawai
+                    <i class="fas fa-fw fa-users"></i> Data User
                 </h4>
             </div>
             <div class="col-auto">
@@ -13,7 +13,7 @@
                         <i class="fa fa-user-plus"></i>
                     </span>
                     <span class="text">
-                        Tambah Pegawai
+                        Tambah User
                     </span>
                 </a>
             </div>
@@ -24,7 +24,6 @@
             <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th>Foto</th>
                     <th>Nama</th>
                     <th>Username</th>
                     <th>Email</th>
@@ -41,9 +40,6 @@
                         ?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td>
-                                <img width="30" src="<?= base_url() ?>assets/img/avatar/<?= $user['foto'] ?>" alt="<?= $user['nama']; ?>" class="img-thumbnail rounded-circle">
-                            </td>
                             <td><?= $user['nama']; ?></td>
                             <td><?= $user['username']; ?></td>
                             <td><?= $user['email']; ?></td>
