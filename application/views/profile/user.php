@@ -1,4 +1,4 @@
-<div class="card p-2 shadow-sm border-bottom-success">
+<div class="card p-2 shadow-sm border-bottom-primary">
     <div class="card-header bg-white">
         <h4 class="h5 align-middle m-0 font-weight-bold text-success">
             <i class="fas fa-fw fa-users"></i> <?= userdata('nama'); ?>

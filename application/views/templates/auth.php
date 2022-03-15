@@ -15,7 +15,7 @@
     <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/css/sb-admin-2.scss" rel="stylesheet">
 
     <style>
         .bg-login-image {
@@ -44,6 +44,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url(); ?>assets/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
 
 </body>
 

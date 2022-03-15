@@ -1,5 +1,5 @@
 <?= $this->session->flashdata('pesan'); ?>
-<div class="card shadow-sm border-bottom-success">
+<div class="card shadow-sm border-bottom-primary">
     <div class="card-header bg-white py-3">
         <div class="row">
             <div class="col">

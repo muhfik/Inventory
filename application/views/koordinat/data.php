@@ -1,10 +1,10 @@
 <?= $this->session->flashdata('pesan'); ?>
-<div class="card shadow-sm border-bottom-success">
+<div class="card shadow-sm border-bottom-primary">
     <div class="card-header bg-white py-3">
         <div class="row">
             <div class="col">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                    <i class="fas fa-fw fa-folder-open"></i> Data Koordinat Barang
+                    <i class="fas fa-fw fa-folder-open"></i> Data Koordinat
                 </h4>
             </div>
             <div class="col-auto">
@@ -13,7 +13,7 @@
                         <i class="fa fa-plus"></i>
                     </span>
                     <span class="text">
-                        Tambah Koordinat Barang
+                        Tambah Koordinat
                     </span>
                 </a>
             </div>

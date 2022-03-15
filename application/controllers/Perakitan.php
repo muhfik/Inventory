@@ -23,15 +23,18 @@ class Perakitan extends CI_Controller
     private function _validasi()
     {
         $this->form_validation->set_rules('nama_lift', 'Nama Lift', 'required');
+        $this->form_validation->set_rules('barang_id', 'Barang', 'required');
         $this->form_validation->set_rules('barang_keluar_id', 'Barang Keluar', 'required');
         $this->form_validation->set_rules('user_id', 'User', 'required');
     }
+
 
     public function add()
     {
         $this->_validasi();
         if ($this->form_validation->run() == false) {
             $data['title'] = "Tambah Data Perakitan";
+            $data['barang'] = $this->admin->get('barang');
             $data['barangkeluar'] = $this->admin->get('barang_keluar');
             $data['users'] = $this->admin->get('user');
 
@@ -42,19 +45,48 @@ class Perakitan extends CI_Controller
             $data['id_perakitan'] = 'P' . $number;
 
             $this->template->load('templates/dashboard', 'perakitan/add', $data);
+        }      
+    }
 
-        } else {
-            $input = $this->input->post(null, true);
-            $insert = $this->admin->insert('perakitan', $input);
-
-            if ($insert) {
-                set_pesan('Data berhasil disimpan');
-                redirect('perakitan');
-            } else {
-                set_pesan('Data gagal ditambah');
-                redirect('perakitan/add');
-            }
+    function simpan_perakitan()
+    {
+        $id_perakitan = $this->input->post('id_perakitan');
+        $nama_lift = $this->input->post('nama_lift');
+        $komponen = $this->input->post('komponen');
+        $result=implode("<br />", $komponen);
+        $barang_keluar_id = $this->input->post('barang_keluar_id');
+        $user_id = $this->input->post('user_id');
+        $desain = $this->uploadfoto();
+        $data = array(
+            'id_perakitan' => $id_perakitan,
+            'nama_lift' => $nama_lift,
+            'komponen' => $result,
+            'barang_keluar_id' => $barang_keluar_id,
+            'user_id' => $user_id,
+            'desain' => $desain
+            );
+        set_pesan('Data berhasil disimpan');
+        $this->admin->input_data($data,'perakitan');
+            redirect('perakitan');
         }
+    
+    public function uploadfoto()
+    {
+        $config['upload_path']          = 'upload';
+        $config['allowed_types']        = 'jpg|jpeg|png';
+        $config['overwrite']            = false;
+        $config['max_size']             = 2048; // 1MB
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+            if ($this->upload->do_upload('desain')) 
+            {
+                return $this->upload->data("file_name");
+            }
+            $error = $this->upload->display_errors();
+            echo $error;
+            exit;
+            // return "default.jpg";
     }
 
     public function delete($getId)

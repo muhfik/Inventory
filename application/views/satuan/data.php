@@ -1,10 +1,10 @@
 <?= $this->session->flashdata('pesan'); ?>
-<div class="card shadow-sm border-bottom-success">
+<div class="card shadow-sm border-bottom-primary">
     <div class="card-header bg-white py-3">
         <div class="row">
             <div class="col">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                    <i class="fas fa-fw fa-folder"></i> Data Satuan Barang
+                    <i class="fas fa-fw fa-folder"></i> Data Satuan
                 </h4>
             </div>
             <div class="col-auto">
@@ -13,7 +13,7 @@
                         <i class="fa fa-plus"></i>
                     </span>
                     <span class="text">
-                        Tambah Satuan Barang
+                        Tambah Satuan
                     </span>
                 </a>
             </div>

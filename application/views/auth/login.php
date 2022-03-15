@@ -11,7 +11,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center mb-4">
-                                <h1 class="h3 text-gray-900">Aplikasi Persediaan Stock Barang</h1>
+                                <h1 class="h3 text-gray-900">Aplikasi Persediaan Stok Barang</h1>
                                 <span class="text-muted">Silahkan Login</span>
                             </div>
                             <?= $this->session->flashdata('pesan'); ?>
@@ -24,7 +24,7 @@
                                 <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
                                 <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                             </div>
-                            <button type="submit" class="btn btn-success btn-user btn-block">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Login
                             </button>
                             <?= form_close(); ?>

@@ -1,9 +1,9 @@
 <div class="row justify-content-center">
     <div class="col-lg-12">
-        <div class="card shadow-sm border-bottom-success">
+        <div class="card shadow-sm border-bottom-primary">
             <div class="card-header bg-white py-3">
                 <h4 class="h5 align-middle m-0 font-weight-bold text-success">
-                    <i class="fas fa-fw fa-print"></i> Cetak Laporan
+                    <i class="fas fa-fw fa-print"></i> Laporan
                 </h4>
             </div>
             <div class="card-body">

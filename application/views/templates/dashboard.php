@@ -20,11 +20,16 @@
     <link href="<?= base_url(); ?>assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- DataTables -->
+
     <link href="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="<?= base_url(); ?>assets/vendor/datatables/buttons/css/buttons.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/datatables/responsive/css/responsive.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/vendor/gijgo/css/gijgo.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 
+ 
     <style>
         #accordionSidebar,
         .topbar {
@@ -90,16 +95,17 @@
 			<li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('satuan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Data Satuan Barang</span>
+                    <span>Data Satuan</span>
                 </a>
             </li>
             
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('koordinat'); ?>">
                     <i class="fas fa-fw fa-map-marker"></i>
-                    <span>Data Koordinat Barang</span>
+                    <span>Data Koordinat</span>
                 </a>
             </li>
+            <?php endif; ?>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('perakitan'); ?>">
@@ -107,7 +113,7 @@
                     <span>Data Perakitan</span>
                 </a>
             </li>
-            <?php endif; ?>
+            
 
            
 
@@ -146,7 +152,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('laporan'); ?>">
                     <i class="fas fa-fw fa-print"></i>
-                    <span>Cetak Laporan</span>
+                    <span>Laporan</span>
                 </a>
             </li>
 
@@ -257,7 +263,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+
     <script src="<?= base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -285,7 +291,15 @@
     <script src="<?= base_url(); ?>assets/vendor/datatables/responsive/js/responsive.bootstrap4.min.js"></script>
 
     <script src="<?= base_url(); ?>assets/vendor/gijgo/js/gijgo.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() 
+        {       
+            $('#komponen').multiselect({        
+                nonSelectedText: 'Komponen'             
+            });
+        });
 
+</script>
     <script type="text/javascript">
         $(function() {
             $('.date').datepicker({

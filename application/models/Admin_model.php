@@ -11,6 +11,9 @@ class Admin_model extends CI_Model
             return $this->db->get_where($table, $where)->result_array();
         }
     }
+        function input_data($data,$table){
+        $this->db->insert($table,$data);
+    }
 
     public function update($table, $pk, $id, $data)
     {
@@ -30,12 +33,6 @@ class Admin_model extends CI_Model
 
     public function getUsers($id)
     {
-        /**
-         * ID disini adalah untuk data yang tidak ingin ditampilkan. 
-         * Maksud saya disini adalah 
-         * tidak ingin menampilkan data user yang digunakan, 
-         * pada managemen data user
-         */
         $this->db->where('id_user !=', $id);
         return $this->db->get('user')->result_array();
     }
@@ -48,7 +45,7 @@ class Admin_model extends CI_Model
         return $this->db->get('barang b')->result_array();
     }
 
-    public function getPerakitan($limit = null, $id_barang_keluar = null, $id_user = null)
+    public function getPerakitan($limit = null, $id_barang = null, $id_user = null, $id_barang_keluar = null)
     {
         $this->db->select('*');
         $this->db->join('user user', 'p.user_id = user.id_user');
@@ -56,13 +53,14 @@ class Admin_model extends CI_Model
         if ($limit != null) {
             $this->db->limit($limit);
         }
-
-        if ($id_barang_keluar != null) {
-            $this->db->where('id_barang_keluar', $id_barang_keluar);
+        if ($id_barang != null) {
+            $this->db->where('id_barang', $id_barang);
         }
-
         if ($id_user != null) {
             $this->db->where('id_user', $id_user);
+        }
+        if ($id_barang_keluar != null) {
+            $this->db->where('id_barang_keluar', $id_barang_keluar);
         }
 
         $this->db->order_by('id_perakitan');
@@ -79,11 +77,9 @@ class Admin_model extends CI_Model
         if ($limit != null) {
             $this->db->limit($limit);
         }
-
         if ($id_barang != null) {
             $this->db->where('id_barang', $id_barang);
         }
-
         if ($range != null) {
             $this->db->where('tanggal_masuk' . ' >=', $range['mulai']);
             $this->db->where('tanggal_masuk' . ' <=', $range['akhir']);
